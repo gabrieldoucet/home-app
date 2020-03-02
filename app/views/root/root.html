@@ -1,0 +1,44 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Home App</a>
+    <ul class="navbar-nav mr-auto">
+
+      <!-- <li class="nav-item pharmacy" ui-sref-active="active">
+        <a class="nav-link" ui-sref="root.pharamacy"><i class="fas fa-first-aid"></i>
+          Pharmacy <span class="sr-only">(current)</span></a>
+      </li> -->
+
+      <!-- <li class="nav-item" ui-sref-active="active">
+        <a class="nav-link" ui-sref="root.kitchen"><i class="fas fa-utensils"></i> Kitchen
+          <span class="sr-only">(current)</span></a>
+      </li> -->
+
+      <!-- <li class="nav-item" ui-sref-active="active">
+        <a class="nav-link" ui-sref="root.entertainment"><i class="fas fa-ticket-alt"></i> Entertainment <span class="sr-only">(current)</span></a>
+      </li> -->
+
+      <li class="nav-item dropdown" ui-sref-active="active">
+        <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-film mr-1"></i>Films
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" ui-sref="root.film.all"><i class="fas fa-list-ul mr-1"></i>All</a>
+          <a class="dropdown-item" ui-sref="root.film.unlimited"><i class="far fa-star mr-1 unlimited"></i>Unlimited</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown" ui-sref-active="active">
+        <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-book-reader"></i> Library</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!-- <a class="dropdown-item" ui-sref="root.library.books"><i class="fas fa-book mr-1"></i>Books</a> -->
+          <a class="dropdown-item" ui-sref="root.library.scores"><i class="fas fa-music mr-1 "></i>Scores</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <div class="col-12">
+    <div ui-view></div>
+  </div>
+</main>

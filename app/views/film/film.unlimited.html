@@ -1,0 +1,103 @@
+<h4>Unlimited Summary</h4>
+
+<div class="card mb-2">
+  <div class="card-header">
+    <h5><i class="far fa-star mr-1 unlimited"></i>Current Period</h5>
+  </div>
+  <div class="card-body">
+    <div class="card-subtitle text-muted">
+      Period #{{vm.lastSummary.id}}
+    </div>
+    <div class="card-subtitle text-muted">{{vm.lastSummary.start | isoDateToHuman}} - {{vm.lastSummary.end | isoDateToHuman}}</div>
+    <div class="row card-title text-center mt-2">
+      <div class="offset-3 col-3">
+        <h4><span class="badge badge-light">{{vm.lastSummary.filmCount}} film(s) seen</span></h4>
+      </div>
+      <div class="col-3">
+        <h4><span class="badge" ng-class="vm.unlimitedData.value === 0 ? 'badge-success' : 'badge-secondary'">{{vm.unlimitedData.value}} film(s) left to see</span></h4>
+        <h6 class="col-12 text-muted">For Overall Film Count</h6>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 mb-1">
+        <h6>
+          <a href ng-click="vm.toggleFilmList()">Films for the period <i class="fa" ng-class="vm.show.filmList ? 'fa-chevron-up': 'fa-chevron-down'"></i></a>
+        </h6>
+      </div>
+      <table class="table col-12" ng-show="vm.show.filmList">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Date</th>
+            <th scope="col">Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="film in vm.lastSummary.films">
+            <td>{{film.title}}</td>
+            <td>{{film.date}}</td>
+            <td>{{film.rating}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-2">
+  <div class="card-header" ng-click="vm.toggleUnlimitedSummary()">
+    <div class="row">
+      <div class="col-11">
+        <h5></i>Previous Periods</h5>
+      </div>
+      <div class="col-1">
+        <i class="fas fa-2x" ng-class="vm.show.unlimitedSummary ? 'fa-chevron-up' : 'fa-chevron-down'" ng-click="toggleUnlimitedSummary()"></i>
+      </div>
+    </div>
+  </div>
+  <div class="card-body" ng-if="vm.show.unlimitedSummary">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-1 font-weight-bold">Period</div>
+          <div class="col-3 font-weight-bold">Start date</div>
+          <div class="col-3 font-weight-bold">End date</div>
+          <div class="col-2 font-weight-bold">Period film count and status</div>
+          <div class="col-2 font-weight-bold">Overall film count and status</div>
+        </div>
+      </li>
+      <li ng-repeat="summary in vm.summaries | orderBy: reverse:true" class="list-group-item">
+        <div class="row mb-1">
+          <div class="col-1"><a href="" ng-click="vm.toggle(summary.id)">{{summary.id}} <i class="fa" ng-class="vm.dropdownMap[summary.id] ? 'fa-chevron-up' : 'fa-chevron-down'"></i></a></div>
+          <div class="col-3">{{summary.start | isoDateToHuman}}</div>
+          <div class="col-3">{{summary.end | isoDateToHuman}}</div>
+          <div class="col-2">{{summary.films.length}} <i class="fas fa-circle ml-2" ng-class="summary.films.length >= 2 ? 'ok' : 'not-ok'"></i></div>
+          <div class="col-2">{{summary.totalFilmCount}} <i class="fas fa-circle ml-2" ng-class="summary.averageOK ? 'ok' : 'not-ok'"></i></div>
+        </div>
+        <div class="row" ng-if="vm.dropdownMap[summary.id]">
+          <div class="col-12 mb-1">
+            <h6>Films for the period</h6>
+          </div>
+          <table class="table col-12" ng-if="summary.films.length > 0">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Date</th>
+                <th scope="col">Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="film in summary.films">
+                <td>{{film.title}}</td>
+                <td>{{film.date | isoDateToHuman}}</td>
+                <td>{{film.rating}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <i class="col-12" ng-if="summary.films.length === 0">There are no records to show</i>
+        </div>
+      </li>
+    </ul>
+  </div> <!-- End of card body -->
+</div> <!-- End of card -->

@@ -1,0 +1,4 @@
+{
+  "ignore": ["config/", "dist/", "public/"],
+  "watch": ["server/"]
+}

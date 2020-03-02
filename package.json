@@ -1,0 +1,53 @@
+{
+  "name": "home-management-app",
+  "version": "1.0.0",
+  "description": "An app to record films I go see, books I read and other data",
+  "author": "Gabriel Doucet",
+  "main": "server/server.js",
+  "dependencies": {
+    "async": "^3.1.0",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.16.4",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "mongoose": "^5.9.2",
+    "morgan": "^1.9.1",
+    "nodemailer": "^6.3.1",
+    "pug": "^2.0.3",
+    "serve-favicon": "^2.5.0",
+    "winston": "^3.2.1"
+  },
+  "scripts": {
+    "dev": "./node_modules/.bin/nodemon --config config/nodemon.json ./bin/www",
+    "start": "node ./bin/www",
+    "gulp": "./node_modules/.bin/gulp",
+    "lint": "./node_modules/.bin/eslint server/**/*.js"
+  },
+  "devDependencies": {
+    "angular": "^1.7.9",
+    "angular-popeye": "^1.0.5",
+    "angular-ui-router": "^1.0.23",
+    "bootstrap": "^4.3.1",
+    "eslint": "^6.7.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-angular": "^4.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-mocha": "^6.2.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "gulp": "^4.0.2",
+    "gulp-bro": "^2.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "jquery": "^3.4.1",
+    "nodemon": "^1.19.4",
+    "popper.js": "^1.16.0",
+    "pre-commit": "^1.2.2"
+  }
+}

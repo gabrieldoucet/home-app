@@ -1,0 +1,56 @@
+.content {
+  margin: 15px
+}
+
+/* -- Navigation bar specific styles */
+.navbar {
+  border-bottom: 1px solid lightgray
+}
+
+.navbar .nav-item {
+  border-bottom: 3px solid var(--dark)
+}
+
+.navbar .nav-item:hover, .active {
+  border-bottom: 3px solid white
+}
+
+.dropdown-toggle {
+  cursor: pointer
+}
+
+
+/* -- Specific colours for the section icons -- */
+.pharmacy-icon {
+  color: #05c46b
+}
+
+.kitchen-icon {
+  color: #f1c40f
+}
+
+.film-icon {
+  color: #778ca3
+}
+
+.entertainment-icon {
+  color: #eb3b5a
+}
+
+.library-icon {
+  color: #3867d6
+}
+
+
+/* -- Film section -- */
+.unlimited {
+  color: #e12224
+}
+
+.ok {
+  color: var(--success)
+}
+
+.not-ok {
+  color: var(--danger)
+}

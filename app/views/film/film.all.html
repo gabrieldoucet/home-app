@@ -1,0 +1,49 @@
+<div class="card mb-2">
+  <div class="card-header">
+    <h5>Analytics</h5>
+  </div>
+  <div class="card-body">
+    <div class="card-subtitle text-muted">
+      Period #{{vm.lastSummary.id}}
+    </div>
+    <div class="card-subtitle text-muted">{{vm.lastSummary.start | isoDateToHuman}} - {{vm.lastSummary.end | isoDateToHuman}}</div>
+    <div class="row card-title text-center mt-2">
+      <div class="offset-3 col-3">
+        <h4><span class="badge badge-dark">{{vm.films.length}} film(s) seen</span></h4>
+        <h6 class="col-12 text-muted">Since {{ vm.films[vm.films.length - 1].date| isoDateToHuman}}</h6>
+      </div>
+      <div class="col-3">
+        <h4><span class="badge badge-dark">{{(vm.films | unlimited).length}} film(s)</span></h4>
+        <h6 class="col-12 text-muted">As Part of Unlimited</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h5>Films</h5>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <table class="table col-12">
+        <thead>
+          <tr>
+            <th scope="col">Actions</th>
+            <th scope="col">Title</th>
+            <th scope="col">Date</th>
+            <th scope="col">Cinema</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="film in vm.films">
+            <td><button class="btn btn-sm btn-outline-primary" ng-click="vm.deleteFilm(film._id)"><i class="fa fa-trash"></i></button></td>
+            <td>{{film.title}}</td>
+            <td>{{film.date | isoDateToHuman}}</td>
+            <td>{{film.location}}<i class="far fa-star ml-2 unlimited" ng-if="film.unlimited"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

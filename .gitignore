@@ -1,0 +1,6 @@
+.env
+.vscode
+node_modules/
+dist/
+data/
+server/cli/
