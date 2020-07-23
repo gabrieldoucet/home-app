@@ -28,7 +28,7 @@
     "lint": "./node_modules/.bin/eslint server/**/*.js"
   },
   "devDependencies": {
-    "angular": "^1.7.9",
+    "angular": "^1.8.0",
     "angular-popeye": "^1.0.5",
     "angular-ui-router": "^1.0.23",
     "bootstrap": "^4.3.1",
