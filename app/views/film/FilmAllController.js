@@ -6,12 +6,12 @@ angular.module('homeApp')
 
 filmAllController.$inject = ['$state', 'dataService', 'films', 'summaries', 'Popeye'];
 
-function filmAllController ($state, dataService, films, summaries, Popeye) {
+function filmAllController ($state, dataService, _films, summaries, Popeye) {
   const vm = this;
 
   const NUMBER_FILMS_PER_MONTH = 2;
 
-  vm.films = _.map(films, function (film) {
+  vm.films = _.map(_films, function (film) {
     const date = _.get(film, ['date']);
     _.set(film, ['date'], moment(date, 'YYYY-MM-DD'));
     return film;
@@ -22,7 +22,7 @@ function filmAllController ($state, dataService, films, summaries, Popeye) {
     summary.end = moment(summary.end, 'YYYY-MM-DD');
     return summary;
   });
-
+  
   let totalFilmCount = 0;
   _.forEach(vm.summaries, function (summary) {
     const films = _.get(summary, ['films']);
@@ -78,7 +78,7 @@ function filmAllController ($state, dataService, films, summaries, Popeye) {
       console.log('success');
       $state.go('root.film.all', {}, { reload: true });
     }).catch(function (err) {
-
+      console.err(err);
     })
   };
-};
+}

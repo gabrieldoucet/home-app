@@ -16,7 +16,7 @@ const DB_NAME = process.env.DB_NAME;
 
 class Database {
   constructor () {
-    var uri = `mongodb://${DB_SERVER_IP}:${DB_SERVER_PORT}/${DB_NAME}`;
+    const uri = `mongodb://${DB_SERVER_IP}:${DB_SERVER_PORT}/${DB_NAME}`;
     mongoose.connect(uri, connectOptions).then(function () {
       const message = `Connected to ${DB_SERVER_IP}:${DB_SERVER_PORT}/${DB_NAME}`;
       logger.info(message);
@@ -26,5 +26,5 @@ class Database {
   }
 }
 
-// connect to database
+// Connect to database
 module.exports = new Database();

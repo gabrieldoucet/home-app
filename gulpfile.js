@@ -3,13 +3,15 @@ const bro = require('gulp-bro');
 const clean = require('gulp-clean');
 const rename = require('gulp-rename');
 const path = require('path');
-const sass = require('gulp-sass');
+const dartSass = require('sass');
+const gulpSass = require('gulp-sass');
+const sass = gulpSass(dartSass);
 
 function cleanDist () {
   return gulp
     .src(path.join(__dirname, 'dist'), { read: false })
     .pipe(clean());
-};
+}
 
 function watchJs () {
   return gulp.watch(['app/**/*.js'], js);
